@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали Товара</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/detail.css' %}">
+</head>
+<header>
+    {% include 'components/navbar.html' %}
+</header>
+<body>
+<div class="product-page">
+    <!-- Левая часть: Галерея изображений -->
+    <div class="image-gallery">
+        <!-- Главное изображение -->
+        <div class="main-image">
+            {% if images %}
+                <img src="{{ images.first.image.url }}" alt="Текущее изображение" id="displayed-image">
+            {% else %}
+                <p>Изображения отсутствуют</p>
+            {% endif %}
+        </div>
+
+        <!-- Миниатюры -->
+        <div class="thumbnail-images">
+            {% for image in images %}
+                <img src="{{ image.image.url }}" alt="Изображение {{ forloop.counter }}" onclick="changeImage(this)">
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="product-details">
+        <h1>{{ product.name }}</h1>
+        <p class="price">{{ product.price }} ₽</p>
+        <p class="description">{{ product.description }}</p>
+    </div>
+</div>
+
+{% include 'components/footer.html' %}
+
+<script src="{% static 'main/js/detail.js' %}"></script>
+<script src="{% static 'main/js/navbar.js' %}"></script>
+</body>
+</html>

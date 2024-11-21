@@ -1,0 +1,20 @@
+@media (max-width: 1200px) {
+    .product-card {
+        flex: 1 1 45%; /* Two cards per row for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        flex: 1 1 100%; /* Single card per row on smaller screens */
+    }
+}
+
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjusts spacing between cards */
+    gap: 20px; /* Adds space between cards */
+    padding: 20px;
+}

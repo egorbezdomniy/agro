@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+</head>
+<body>
+<header>
+    {% include 'components/navbar.html' %}
+</header>
+     <div class="hero">
+        <div class="hero-text">
+            <h1>ErzhanShop</h1>
+            <p>Умные руки для вашего бизнеса</p>
+        </div>
+    </div>
+<div class="advantages-title">
+    <p class="hidden centered-text ">Наши преимущества</p>
+</div>
+<div class="advantages-container">
+
+    {% include 'components/advantage.html' %}
+    {% include 'components/advantage.html' %}
+    {% include 'components/advantage.html' %}
+    {% include 'components/advantage.html' %}
+</div>
+{% include 'components/video_example.html' %}
+{% include 'components/footer.html' %}
+<script src="{% static 'main/js/index.js' %}"></script>
+</body>
+</html>
