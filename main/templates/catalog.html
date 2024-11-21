@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/catalog.css' %}">
+</head>
+<body>
+<header>
+    {% include 'components/navbar.html' %}
+</header>
+
+<div class="product-container">
+    {% for product in products %}
+        {% include 'components/card.html' with name=product.name description=product.description price=product.price image=product.image %}
+    {% endfor %}
+</div>
+{% include 'components/footer.html' %}
+
+
+<script src="{% static 'main/js/catalog.js' %}"></script>
+</body>
+</html>

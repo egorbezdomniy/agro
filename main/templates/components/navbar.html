@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/css/navbar.css' %}">
+
+<header class="navbar-container">
+    <div class="navbar-left">
+        <a href="{% url 'index' %}" class="nav-link"><span class="navbar-item" id="logo">ErzhanShop</span></a>
+        <a href="{% url 'catalog' %}" class="nav-link"><span class="navbar-item">Ассортимент</span></a>
+        <a href="" class="nav-link"><span class="navbar-item">Контакты</span></a>
+    </div>
+</header>

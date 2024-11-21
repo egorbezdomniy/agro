@@ -1,0 +1,73 @@
+/* Общий контейнер карточки */
+.product-card {
+    flex: 1 1 400px; /* Увеличиваем минимальную ширину карточки */
+    display: block;
+    width: 100%;
+    max-width: 400px; /* Увеличиваем максимальную ширину */
+    margin: 30px auto; /* Увеличиваем внешний отступ для карточек */
+    text-decoration: none;
+    color: #333;
+    background: radial-gradient(circle , #3f5b79, #2c3e50);
+    border-radius: 16px; /* Закругленные углы */
+    padding: 25px; /* Увеличиваем внутренний отступ темно-серой части */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Тень */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Внутренний контейнер карточки */
+.product-card .product-image {
+    background-color: #e0e0e0; /* Светло-серый внутренний фон */
+    border-radius: 12px; /* Закругленные углы внутреннего контейнера */
+    padding: 15px;
+    margin-bottom: 20px;
+    position: relative; /* Для управления позицией изображения */
+    overflow: hidden; /* Скрываем выходящее изображение */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px; /* Фиксированная высота для предотвращения "сжатия" */
+}
+
+/* Изображение в карточке */
+.product-card img {
+    width: 93%; /* Отключаем фиксированную ширину */
+    height: 95%; /* Задаем высоту равную контейнеру */
+    max-width: 100%; /* Изображение не выходит за пределы контейнера */
+    border-radius: 12px; /* Скругление изображения */
+    transition: transform 0.3s ease-in-out; /* Плавная анимация */
+}
+
+/* Эффект при наведении */
+.product-card:hover .product-image img {
+    transform: scale(1.15); /* Увеличиваем изображение */
+}
+
+/* Информация о товаре */
+.product-info {
+    text-align: center;
+}
+
+.product-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffffff; /* Белый текст */
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 1em;
+    color: #cccccc; /* Светло-серый текст */
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #cccccc;
+}
