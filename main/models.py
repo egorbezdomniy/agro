@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
+from unidecode import unidecode
+
 
 class Product(models.Model):
     name = models.CharField(max_length=255, verbose_name="Название")
@@ -9,11 +11,13 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            # Транслитерация перед созданием slug
+            self.slug = slugify(unidecode(self.name))
         super(Product, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
+
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
