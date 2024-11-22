@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-t8z9i_)v44_eebsxb1qyt2+f70701uv@o=!3+!3$p-b7wsuo=1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['testik1pon.pythonanywhere.com', 'localhost']
 
 
 # Application definition
@@ -117,9 +117,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
-    BASE_DIR / "main" / "static",
+    BASE_DIR / "main" / "static",  # Указывает, где находятся исходные статические файлы
 ]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"  # Папка, куда Django соберет файлы
 
 
 
