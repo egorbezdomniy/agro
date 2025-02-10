@@ -3,8 +3,20 @@
 
 <header class="navbar-container">
     <div class="navbar-left">
-        <a href="{% url 'index' %}" class="nav-link"><span class="navbar-item" id="logo">ErzhanShop</span></a>
-        <a href="{% url 'catalog' %}" class="nav-link"><span class="navbar-item">Ассортимент</span></a>
-        <a href="" class="nav-link"><span class="navbar-item">Контакты</span></a>
+        <a href="{% url 'index' %}" class="nav-link">
+            <span class="navbar-item" id="logo">ПромТехСинергия</span>
+        </a>
     </div>
+    <button class="menu-toggle" aria-label="Toggle menu">
+        ☰
+    </button>
+    <nav class="navbar-right">
+        <a href="{% url 'catalog' %}" class="nav-link">
+            <span class="navbar-item">Ассортимент</span>
+        </a>
+        <a href="#footer" class="nav-link">
+            <span class="navbar-item">Контакты</span>
+        </a>
+    </nav>
 </header>
+<script src="{% static 'main/js/navbar.js' %}"></script>
