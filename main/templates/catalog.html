@@ -14,7 +14,7 @@
 
 <div class="product-container">
     {% for product in products %}
-        {% include 'components/card.html' with name=product.name description=product.description price=product.price image=product.image %}
+        {% include 'components/card.html' with name=product.name price=product.price image=product.image %}
     {% endfor %}
 </div>
 <div id="footer">
