@@ -25,7 +25,7 @@ SECRET_KEY = 'REDACTED'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['testik1pon.pythonanywhere.com', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

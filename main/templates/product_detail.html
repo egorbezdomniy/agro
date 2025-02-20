@@ -10,37 +10,127 @@
 <header>
     {% include 'components/navbar.html' %}
 </header>
+<head>
+    <style>
+        .product-page {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-gallery {
+            flex: 1;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .main-image img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .thumbnail-images img {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail-images img:hover {
+            transform: scale(1.1);
+        }
+
+        .product-details {
+            flex: 1;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .product-details h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e63946;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .product-page {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-gallery,
+            .product-details {
+                max-width: 100%;
+            }
+
+            .thumbnail-images img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+    <script>
+        function changeImage(element) {
+            document.getElementById("displayed-image").src = element.src;
+        }
+    </script>
+</head>
+
 <body>
-<div class="product-page">
-    <!-- Левая часть: Галерея изображений -->
-    <div class="image-gallery">
-        <!-- Главное изображение -->
-        <div class="main-image">
-            {% if images %}
-                <img src="{{ images.first.image.url }}" alt="Текущее изображение" id="displayed-image">
-            {% else %}
-                <p>Изображения отсутствуют</p>
-            {% endif %}
+    <div class="product-page">
+        <!-- Левая часть: Галерея изображений -->
+        <div class="image-gallery">
+            <!-- Главное изображение -->
+            <div class="main-image">
+                {% if images %}
+                    <img src="{{ images.first.image.url }}" alt="Текущее изображение" id="displayed-image">
+                {% else %}
+                    <p>Изображения отсутствуют</p>
+                {% endif %}
+            </div>
+
+            <!-- Миниатюры -->
+            <div class="thumbnail-images">
+                {% for image in images %}
+                    <img src="{{ image.image.url }}" alt="Изображение {{ forloop.counter }}" onclick="changeImage(this)">
+                {% endfor %}
+            </div>
         </div>
 
-        <!-- Миниатюры -->
-        <div class="thumbnail-images">
-            {% for image in images %}
-                <img src="{{ image.image.url }}" alt="Изображение {{ forloop.counter }}" onclick="changeImage(this)">
-            {% endfor %}
+        <!-- Правая часть: Детали продукта -->
+        <div class="product-details">
+            <h1>{{ product.name }}</h1>
+            <p class="price">{{ product.price }} ₽</p>
+            <p class="description">{{ product.description }}</p>
         </div>
     </div>
-
-    <div class="product-details">
-        <h1>{{ product.name }}</h1>
-        <p class="price">{{ product.price }} ₽</p>
-        <p class="description">{{ product.description }}</p>
-    </div>
-</div>
 
 {% include 'components/footer.html' %}
 
 <script src="{% static 'main/js/detail.js' %}"></script>
-<script src="{% static 'main/js/navbar.js' %}"></script>
 </body>
 </html>
