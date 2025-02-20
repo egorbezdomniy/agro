@@ -1,0 +1,77 @@
+/* Общие стили для страницы деталей */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f8f0; /* Пастельно-зелёный фон */
+}
+
+.product-page {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-gallery {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+.main-image img {
+    width: 100%;
+    width: 500px; /* Максимальная ширина изображения */
+    height: 500px;
+    object-fit: cover; /* Заполняет  фиксированное пространство */
+    border-radius: 8px;
+}
+
+
+.thumbnail-images {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.thumbnail-images img {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.thumbnail-images img:hover {
+    transform: scale(1.1);
+}
+
+.product-details {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-details h1 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 5px;
+}
+#displayed-image{
+    width: 500px;
+    height: 500px;
+}
