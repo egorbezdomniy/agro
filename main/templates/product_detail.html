@@ -124,7 +124,9 @@
         <!-- Правая часть: Детали продукта -->
         <div class="product-details">
             <h1>{{ product.name }}</h1>
-            <p class="price">{{ product.price }} ₽</p>
+            {% if product.price %}
+                <p class="price">{{ product.price }} ₽</p>
+            {% endif %}
             <p class="description">{{ product.description|linebreaksbr }}</p>
         </div>
     </div>

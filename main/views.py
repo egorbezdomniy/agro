@@ -1,11 +1,14 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Product, Advantage
 
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    advantages = Advantage.objects.all()
+    return render(request, 'index.html', context={
+        'advantages': advantages
+    })
 
 def catalog(request):
     products = Product.objects.all()
