@@ -21,11 +21,9 @@
     <p class="hidden centered-text ">Наши преимущества</p>
 </div>
 <div class="advantages-container">
-
+    {% for advantage in advantages %}
     {% include 'components/advantage.html' %}
-    {% include 'components/advantage.html' %}
-    {% include 'components/advantage.html' %}
-    {% include 'components/advantage.html' %}
+    {% endfor %}
 </div>
 {% include 'components/video_example.html' %}
 <div id="footer">

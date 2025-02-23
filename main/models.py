@@ -1,3 +1,5 @@
+from tabnanny import verbose
+
 from django.db import models
 from django.utils.text import slugify
 from unidecode import unidecode
@@ -25,3 +27,13 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.product.name}"
+
+
+
+class Advantage(models.Model):
+    title = models.CharField(max_length=255, verbose_name="Заголовок")
+    text = models.CharField(max_length=2047, verbose_name='Текст')
+    emoji = models.CharField(max_length=8, verbose_name='Эмоджи')
+
+    def __str__(self):
+        return f"{self.title}"
