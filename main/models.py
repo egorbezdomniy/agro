@@ -6,7 +6,7 @@ from unidecode import unidecode
 class Product(models.Model):
     name = models.CharField(max_length=255, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена", blank=True, null=True)
     slug = models.SlugField(unique=True, blank=True, null=True, verbose_name="URL")
 
     def save(self, *args, **kwargs):
