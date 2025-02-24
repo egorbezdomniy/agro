@@ -93,3 +93,19 @@ html {
         height: 92vh;
     }
 }
+
+.custom-hr {
+    border: none;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #2c3e50, transparent);
+    border-radius: 2px;
+    margin: 30px auto;
+    width: 60%;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .custom-hr {
+        width: 80%;
+    }
+}
